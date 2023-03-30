@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+    name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <title>美好生活，新春“邮”喜</title>
+  <link href="css/style.css?0" rel="stylesheet" />
+  <link href="css/vant.css" rel="stylesheet" />
+  <!-- <script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js" type="text/javascript" charset="utf-8"></script> -->
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0bfa99c78a7cb661d2dc5565d423e390";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- 加载动画  -->
+  <div id="app" class="loaders">
+    <div class="loader">
+      <div class="ball-spin-fade-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/x-template" id="temp">
+      <div class="base">
+        <div class="box block">
+          <img src="image/b2.png" alt="">
+        </div>
+
+         <div class="box1">
+            <div  class="block b1">
+              <img class="img2" src="image/p1.png" alt="">
+            </div>
+            <div id="db" class="block b2">
+              <img  class="spacing" :src="'image/p2.png'">
+              <a href="https://yhl.zzjtsj.cn/"  style="position: absolute;background: rgba(0,0,0,0);width: 58%; height: 15vw; max-height: 114px;left: 22%; bottom:5%">
+               <img src="image/canyu.png" alt="立即参与" class="btn_img">
+              </a>
+            </div>
+            <div class="block b3">
+              <img class="spacing" src="image/p3.png">
+                 <a href="https://hnpsbc.com.cn/foodmap/food"  style="position: absolute;background: rgba(0,0,0,0);width: 57%; height: 15vw; max-height: 114px;left: 22%; bottom:8%">
+                 <img src="image/shanghu.png" alt="查看商户" class="btn_img">
+                 </a>
+             </div>
+             <div class="block b4">
+              <!-- <img src="images/b3-0.jpg">
+              <img src="images/b3-1.jpg">
+                <a @click="show=true" style="position: absolute;background: rgba(0,0,0,0); width: 54%; height: 13vw; max-height: 104px;left: 23%; bottom: 6.5%" ></a> -->
+                <div class="point " @click="b3Index=1 " style="left: 8%;width: 40%;top: 32%;"></div>
+                <div class="point" @click="b3Index=2 " style="left: 52%; width:40%; top: 32%"></div>
+                <!-- <div class="point " @click="b3Index=3 " style="left: 64%; width:28.5%; top: 32%"></div> -->
+                   <img :src="'image/p4-'+b3Index+'.png?0'" class="spacing">
+                <a href="https://ycact.bzh001.com/202207/index.html?from=share#/"  v-if="b3Index==1" style="position: absolute;background: rgba(0,0,0,0);width: 54%; height: 15vw; max-height: 112px;left: 23%; bottom: 7.5%">
+                <img src="image/canyu.png" alt="立即参与" class="btn_img"> 
+                </a>
+              </div>
+              <div class="block b5">
+                <img class="spacing" src="Image/p5.png" alt="">
+             </div>
+              <div class="block b6">
+                <div class="point " @click="b6Index=1 " style="left: 8%;width: 28%;top: 24%;"></div>
+                <div class="point" @click="b6Index=2 " style="left: 36%; width:28%; top: 24%"></div>
+                <div class="point " @click="b6Index=3 " style="left: 64%; width:28.5%; top: 24%"></div>
+                   <img :src="'image/p6-'+b6Index+'.png?0'" class="spacing">
+                  <a v-if="b6Index==1" href="https://u.psbc.com/11lmZu" target="_blank" style="position: absolute;background: rgba(0,0,0,0); width: 57%; height: 15vw; max-height: 112px;left: 23%; bottom: 33%">
+                    <img src="image/canyu.png" alt="立即参与" class="btn_img">
+                  </a>
+                  <a v-if="b6Index==2" href="https://u.psbc.com/2qW3ck" target="_blank" style="position: absolute;background: rgba(0,0,0,0); width: 57%; height: 15vw; max-height: 112px;left: 23%; bottom: 41.5%">
+                    <img src="image/canyu.png" alt="立即参与" class="btn_img">
+                  </a>
+                  <a v-if="b6Index==3" href="https://u.psbc.com/4F2F04" target="_blank" style="position: absolute;background: rgba(0,0,0,0); width: 57%; height: 15vw; max-height: 112px;left: 23%; bottom: 5.5%">
+                    <img src="image/canyu.png" alt="立即参与" class="btn_img">
+                  </a>
+               </div>
+              
+            
+               <van-popup v-model="show" class="layer" close-on-click-overlay="false">
+                  <div class="layer_con">
+                     <p>活动暂未开始，请耐心等待</p>
+                     <span class="btn" @click="show=false">确定</span>
+                  </div>
+               </van-popup>
+            </div>
+      </div>
+    
+    </script>
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript " src="js/vue.min.js "></script>
+  <script type="text/javascript " src="js/vant.js "></script>
+</body>
+<script>
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    }
+    return false;
+  }
+  // 微信分享
+  function ready() { }
+
+  ready();
+</script>
+<script>
+  const images = [
+    // "./images/b1.jpg",
+    // "./images/b2_1.jpg",
+    // "./images/b2_2.jpg",
+    // "./images/b2_3.jpg",
+    // "./images/b3-0.jpg",
+    // "./images/b3-1.jpg",
+    // "./images/b4-1.jpg",
+    // "./images/b5.jpg",
+    // "./images/b6-1.jpg",
+    // "./images/b6-2.jpg",
+    // "./images/b7-1.jpg",
+    // "./images/b7-2.jpg",
+    "./image/box.png",
+    "./image/b1.png",
+    "./image/p1.png",
+    "./image/p2.png",
+    "./image/p3.png",
+    "./image/p4.png",
+    "./image/p4-1.png",
+    "./image/p4-2.png",
+
+    "./image/p5.png",
+    "./image/p6.png",
+    "./image/p6-1.png",
+    "./image/p6-2.png",
+    "./image/p6-3.png",
+
+    "./image/canyu.png",
+    "./image/shanghu.png",
+  ];
+  const loadImg = (imageSrc) => {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.src = imageSrc;
+      // 如果图片已经存在于浏览器缓存，直接调用回调函数
+      if (image.complete) {
+        resolve(image);
+        return;
+      }
+      image.onload = () => {
+        this.loadNum += 1;
+        resolve(image);
+      };
+      image.onerror = () => {
+        reject({
+          src: imageSrc,
+          msg: "图片加载错误",
+        });
+      };
+    });
+  };
+  let resPromise = [];
+  images.map((item) => {
+    resPromise.push(loadImg(item));
+  });
+  Promise.all(resPromise).then(() => {
+    setTimeout(() => {
+      initVue();
+    }, 100);
+  });
+
+  function initVue() {
+    var wm = new Vue({
+      el: "#app",
+      template: "#temp",
+      data: {
+        b3Index: 1,
+        b4Index: 1,
+        b6Index: 1,
+        b7Index: 1,
+
+        show: false,
+      },
+      mounted() {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            let area = getQueryVariable("block");
+            console.log(area);
+            if (area) {
+              if (area == "area1") {
+                //特惠商家
+                // this.b3Index = 1;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p1").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area2") {
+                this.b3Index = 1;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p2").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area3") {
+                this.b3Index = 1;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p4").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area4") {
+                this.b3Index = 2;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p4").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area5") {
+                this.b4Index = 3;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p4").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area6") {
+                // this.b6Index = 1;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p5").offset().top,
+                  },
+                  1000
+                );
+              }
+              else if (area == "area7") {
+                this.b6Index = 1;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p6").offset().top,
+                  },
+                  1000
+                );
+              } else if (area == "area8") {
+                this.b6Index = 2;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p6").offset().top,
+                  },
+                  1000
+                );
+              }
+              else if (area == "area9") {
+                this.b6Index = 3;
+                $(".base").animate(
+                  {
+                    scrollTop: $(".p6").offset().top,
+                  },
+                  1000
+                );
+              }
+            }
+          }, 50);
+        });
+      },
+      created() { },
+      methods: {
+        goLink() {
+          var link =
+            "https://ycact.bzh001.com/shopping202204/index?from=gzh&type=goods";
+          console.log(link);
+          window.location.href = link;
+        },
+      },
+    });
+  }
+</script>
+
+</html>
